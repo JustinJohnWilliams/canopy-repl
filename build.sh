@@ -1,3 +1,4 @@
+touch 'chrome_debug.log'
 mono nuget.exe install FSharp.Core -ExcludeVersion -OutputDirectory FSharpModules -Version 3.1.2.1
 mono nuget.exe install FSharp.Data -ExcludeVersion -OutputDirectory FSharpModules -Version 2.2.3
 mono nuget.exe install FSharp.Data.SqlClient -ExcludeVersion -OutputDirectory FSharpModules -Version 1.7.2
