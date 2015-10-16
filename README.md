@@ -2,4 +2,4 @@
 - Run `sh ./build.sh`
 - Works on OSX only. If you find this useful, then let me know and I'll add support for your OS.
 - `brew install watch`
-- `watch -n1 sh ./view_log.sh`
+- tail `chrome_debug.log`
