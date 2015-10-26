@@ -26,6 +26,7 @@ open HttpClient
 open canopy
 open runner
 open System
+open System.Collections.ObjectModel
 open FSharp.Data
 open Nessos.UnionArgParser
 open types
@@ -49,6 +50,20 @@ let openBrowser _ =
     options.AddArgument("--v=0")
     start (ChromeWithOptions options)
     browser.Manage().Cookies.DeleteAllCookies()
+
+let ids _ =
+  (js """
+        return $('[id]').map(function(a) {
+            return $($('[id]')[a]).attr('id');
+        })
+      """) :?> ReadOnlyCollection<System.Object> |> List.ofSeq
+
+let names _ =
+  (js """
+        return $('[name]').map(function(a) {
+            return $($('[name]')[a]).attr('name');
+        })
+      """) :?> ReadOnlyCollection<System.Object> |> List.ofSeq
 
 openBrowser()
 
